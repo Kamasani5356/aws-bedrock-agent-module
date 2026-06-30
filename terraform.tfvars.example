@@ -1,0 +1,7 @@
+########################################################################
+# terraform.tfvars — Variable values for local/dev deployment
+# Copy to terraform.tfvars and fill in your values.
+# DO NOT commit this file to source control if it contains secrets.
+########################################################################
+
+aws_region = "us-east-1"
