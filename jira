@@ -28,4 +28,10 @@ Here are the four items rewritten as Jira-ready task descriptions, each broken i
 - Enabled automated status updates back to ServiceNow tickets on build/deploy success or failure
 - Improved traceability and compliance by linking deployments to change records
 
-Want me to format these directly as a Jira-importable CSV or put them in a doc you can copy from?
+**Task 5: Developed GCP Terraform Modules**
+- Built reusable Terraform modules for core GCP data and analytics services: Dataform, Dataflow, Dataproc, and Dataplex
+- Developed modules for GKE Backup, KMS, Project, and DNS to standardize infrastructure provisioning
+- Created modules for Subnetwork IAM Members and Service Account to manage access control and permissions
+- Implemented Logging and Data Loss Prevention (DLP) modules to support monitoring and data security compliance
+- Added Eventarc module to enable event-driven automation across GCP services
+- Ensured all modules follow standardized, reusable Terraform patterns for consistent multi-project deployment
