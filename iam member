@@ -1,0 +1,7 @@
+resource "google_folder_iam_member" "gcp_group" {
+  count = (var.gcp_role_permission != null && var.iam_gcp_group_name != null) ? 1 : 0
+
+  folder = var.folder_name
+  role   = coalesce(var.gcp_role_permission, "")
+  member = coalesce(var.iam_gcp_group_name, "")
+}
