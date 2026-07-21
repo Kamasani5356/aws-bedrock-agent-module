@@ -5,3 +5,29 @@ resource "google_folder_iam_member" "gcp_group" {
   role   = coalesce(var.gcp_role_permission, "")
   member = coalesce(var.iam_gcp_group_name, "")
 }
+
+
+resource "google_folder_iam_member" "gcp_group" {
+  count = (
+    var.gcp_role_permission != null && var.gcp_role_permission != "" &&
+    var.iam_gcp_group_name != null && var.iam_gcp_group_name != ""
+  ) ? 1 : 0
+
+  folder = var.folder_name
+  role   = var.gcp_role_permission
+  member = var.iam_gcp_group_name
+}
+
+locals {
+  gcp_group_iam_enabled = (
+    trimspace(coalesce(var.gcp_role_permission, "")) != "" &&
+    trimspace(coalesce(var.iam_gcp_group_name, "")) != ""
+  )
+}
+
+resource "google_folder_iam_member" "gcp_group" {
+  count  = local.gcp_group_iam_enabled ? 1 : 0
+  folder = var.folder_name
+  role   = var.gcp_role_permission
+  member = var.iam_gcp_group_name
+}
